@@ -1,0 +1,81 @@
+[project]
+name = "pdf-question-extractor"
+version = "1.0.0"
+description = "Deterministic local PDF parsing and question extraction pipeline for structured examination papers"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" }
+]
+keywords = ["pdf", "extraction", "ocr", "nlp", "education", "exam", "question-extraction"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Markup",
+]
+
+dependencies = [
+    "PyMuPDF>=1.24.0",
+    "pypdf>=4.0.0",
+    "pydantic>=2.0.0",
+    "PyYAML>=6.0",
+    "pandas>=2.0.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "rich>=13.0.0",
+    "typer>=0.9.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "pyobjc-framework-Vision>=10.0",
+    "pyobjc-framework-Quartz>=10.0",
+]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+dev = [
+    "ruff>=0.1.0",
+    "mypy>=1.0",
+]
+
+[project.scripts]
+extract-questions = "questionai.pipeline:run_stage_a_pipeline"
+
+[project.urls]
+Homepage = "https://github.com/<your-username>/pdf-question-extractor"
+Repository = "https://github.com/<your-username>/pdf-question-extractor"
+Issues = "https://github.com/<your-username>/pdf-question-extractor/issues"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["questionai*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true

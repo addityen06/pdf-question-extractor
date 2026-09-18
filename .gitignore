@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE and editor
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Pipeline output directories
+textPapers/
+textPapersCSV/
+reports/
+logs/
+ai_cache/
+ai_logs/
+dataset/
+
+# Assets generated during extraction
+*_assets/
+*_raw.json
+*_extraction_report.json
+
+# PDF source files (not included in repository)
+*.pdf
+
+# Large data files
+*.zip
+*.tar.gz
+*.gz
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Secrets and environment
+.env
+.env.*
+*.key
+*.pem

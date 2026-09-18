@@ -1,0 +1,86 @@
+# QuestionAI Configuration
+# ========================
+# Override any defaults here. Missing keys use defaults from questionai/core/config.py.
+
+paths:
+  papers_dir: "."                    # The Papers directory (project root)
+  output_dir: "textPapers"
+  csv_output_dir: "textPapersCSV"
+  reports_dir: "reports"
+  assets_dir: "assets"
+  logs_dir: "logs"
+  dataset_dir: "dataset"
+
+ocr:
+  engine: "apple_vision"
+  dpi: 300
+  language: "en"
+  recognition_level: "accurate"
+  min_confidence: 0.3
+  grayscale: true
+  adaptive_threshold: false
+  deskew: true
+
+extraction:
+  native_text_threshold: 50
+  image_area_threshold: 0.5
+  max_header_height_ratio: 0.25
+  max_footer_height_ratio: 0.08
+  min_question_text_length: 10
+  line_merge_y_tolerance: 3.0
+  paragraph_gap_multiplier: 1.5
+  column_detection_min_gap: 30.0
+
+question_detection:
+  question_signal_threshold: 3
+  marks_search_radius: 200.0
+  subquestion_indent_threshold: 15.0
+  or_choice_detection: true
+  expected_numbering_start: 1
+
+content_detection:
+  code_keyword_threshold: 3
+  math_symbol_threshold: 2
+  table_min_columns: 2
+  table_min_rows: 2
+  figure_min_area: 5000.0
+
+confidence:
+  weights:
+    ocr_confidence: 0.30
+    question_number: 0.15
+    marks_detection: 0.10
+    boundary_confidence: 0.20
+    content_completeness: 0.15
+    validation_checks: 0.10
+  tier_high: 0.90
+  tier_medium: 0.70
+  tier_low: 0.50
+
+validation:
+  check_sequential_numbers: true
+  check_marks_sum: true
+  check_admin_content: true
+  check_truncation: true
+  check_brackets_balanced: true
+  marks_tolerance_percent: 10.0
+  min_question_length: 10
+
+cleaning:
+  remove_duplicate_whitespace: true
+  remove_page_numbers: true
+  normalize_unicode: true
+  preserve_code_whitespace: true
+  preserve_math_symbols: true
+
+batch:
+  max_workers: 1
+  resume_on_restart: true
+  save_checkpoint_every: 1
+  skip_answer_keys: false
+  skip_model_papers: false
+
+logging:
+  level: "INFO"
+  log_to_file: true
+  rich_console: true
