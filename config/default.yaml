@@ -1,6 +1,6 @@
-# QuestionAI Configuration
-# ========================
-# Override any defaults here. Missing keys use defaults from questionai/core/config.py.
+# PDF Extractor Configuration
+# ============================
+# Override any defaults here. Missing keys use defaults from src/pdfextract/core/config.py.
 
 paths:
   papers_dir: "."                    # The Papers directory (project root)

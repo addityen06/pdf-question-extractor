@@ -25,7 +25,7 @@ Given a directory of course-organised examination PDFs, the pipeline:
 ## Architecture
 
 ```
-src/questionai/
+src/pdfextract/
     core/           Models, config schema, constants, exceptions
     ingestion/      Directory scanner, filename parser, paper registry
     pdf/            PDF loader, page classifier, native text extractor, page renderer
@@ -257,7 +257,7 @@ Optional (OCR, macOS only):
 ```
 pdf-question-extractor/
     src/
-        questionai/
+        pdfextract/
             __init__.py
             pipeline.py
             core/

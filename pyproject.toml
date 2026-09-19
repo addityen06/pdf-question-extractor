@@ -18,7 +18,7 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Text Processing :: Markup",
 ]
 
@@ -50,7 +50,7 @@ dev = [
 ]
 
 [project.scripts]
-extract-questions = "questionai.pipeline:run_stage_a_pipeline"
+extract-questions = "pdfextract.pipeline:run_stage_a_pipeline"
 
 [project.urls]
 Homepage = "https://github.com/<your-username>/pdf-question-extractor"
@@ -63,7 +63,7 @@ build-backend = "setuptools.backends._legacy:_Backend"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["questionai*"]
+include = ["pdfextract*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

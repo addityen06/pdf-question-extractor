@@ -20,7 +20,7 @@ pip install -e ".[test,dev]"
 
 ## Project Structure
 
-Source code lives under `src/questionai/`. The package is installed in editable mode so changes take effect immediately without reinstalling.
+Source code lives under `src/pdfextract/`. The package is installed in editable mode so changes take effect immediately without reinstalling.
 
 ## Running Tests
 
@@ -37,7 +37,7 @@ pytest -m integration
 To run all tests with coverage:
 
 ```bash
-pytest --cov=src/questionai --cov-report=term-missing
+pytest --cov=src/pdfextract --cov-report=term-missing
 ```
 
 ## Code Style

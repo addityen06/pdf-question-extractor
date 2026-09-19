@@ -4,7 +4,7 @@ Unit tests for core data models.
 from __future__ import annotations
 
 import pytest
-from questionai.core.models import (
+from pdfextract.core.models import (
     BoundingBox,
     ElementBlock,
     ParagraphBlock,

@@ -4,13 +4,13 @@ Unit tests for the question detection module.
 from __future__ import annotations
 
 import pytest
-from questionai.content.question_detector import (
+from pdfextract.content.question_detector import (
     detect_questions,
     _extract_question_number,
     _extract_marks,
     _is_subquestion_start,
 )
-from questionai.core.models import ParagraphBlock, LineBlock, BoundingBox, BlockType
+from pdfextract.core.models import ParagraphBlock, LineBlock, BoundingBox, BlockType
 
 
 def _make_paragraph(text: str, x0: float = 72.0, y0: float = 100.0, page: int = 1) -> ParagraphBlock:

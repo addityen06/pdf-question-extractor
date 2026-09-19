@@ -8,8 +8,8 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from questionai.core.models import Question, ContentBlock, BlockType, VerificationStatus
-from questionai.output.csv_writer import write_paper_csv
+from pdfextract.core.models import Question, ContentBlock, BlockType, VerificationStatus
+from pdfextract.output.csv_writer import write_paper_csv
 
 
 def _make_question(n: int, text: str, marks: int = 10) -> Question:

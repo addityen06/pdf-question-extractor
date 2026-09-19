@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import pytest
 from pathlib import Path
-from questionai.ingestion.directory_scanner import (
+from pdfextract.ingestion.directory_scanner import (
     extract_course_code,
     parse_paper_filename,
 )

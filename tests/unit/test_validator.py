@@ -4,14 +4,14 @@ Unit tests for the validator.
 from __future__ import annotations
 
 import pytest
-from questionai.core.models import (
+from pdfextract.core.models import (
     Question,
     ContentBlock,
     BlockType,
     ExtractionReport,
     VerificationStatus,
 )
-from questionai.validation.validator import validate_paper
+from pdfextract.validation.validator import validate_paper
 
 
 def _make_question(n: int, text: str, marks: int = 10, subq: str | None = None) -> Question:

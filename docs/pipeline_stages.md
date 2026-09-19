@@ -6,7 +6,7 @@ Detailed description of every stage in the extraction pipeline.
 
 ## Stage 1 — PDF Classification
 
-**Module:** `src/questionai/pdf/pdf_classifier.py`
+**Module:** `src/pdfextract/pdf/pdf_classifier.py`
 
 Classifies each page individually as one of three types:
 
@@ -24,7 +24,7 @@ The overall PDF type is determined by majority vote across pages.
 
 ## Stage 2 — Text Extraction
 
-**Modules:** `src/questionai/pdf/text_extractor.py`, `src/questionai/ocr/`
+**Modules:** `src/pdfextract/pdf/text_extractor.py`, `src/pdfextract/ocr/`
 
 ### Native text extraction
 
@@ -42,7 +42,7 @@ For HYBRID pages, native and OCR elements are merged. OCR elements are added onl
 
 ## Stage 3 — Layout Analysis
 
-**Modules:** `src/questionai/layout/layout_analyzer.py`, `src/questionai/layout/reading_order.py`
+**Modules:** `src/pdfextract/layout/layout_analyzer.py`, `src/pdfextract/layout/reading_order.py`
 
 Groups raw `ElementBlock` objects into `LineBlock` objects by y-coordinate proximity (configurable `line_merge_y_tolerance`), and then groups lines into `ParagraphBlock` objects by vertical gap analysis (gap above `paragraph_gap_multiplier` times the average line height triggers a new paragraph).
 
@@ -52,7 +52,7 @@ Multi-column detection uses a minimum horizontal gap threshold (`column_detectio
 
 ## Stage 4 — Administrative Content Removal
 
-**Module:** `src/questionai/layout/header_footer_detector.py`
+**Module:** `src/pdfextract/layout/header_footer_detector.py`
 
 Scans paragraphs for administrative content using two strategies:
 
@@ -65,7 +65,7 @@ Paragraphs in the top 25% of the page height (configurable) are checked as poten
 
 ## Stage 5 — Question Detection
 
-**Module:** `src/questionai/content/question_detector.py`
+**Module:** `src/pdfextract/content/question_detector.py`
 
 This is the most critical stage. See the [README](../README.md#question-detection) for the full signal table.
 
@@ -84,7 +84,7 @@ If zero candidates are produced by the multi-signal pass, the detector falls bac
 
 ## Stage 6 — Specialised Content Detection
 
-**Modules:** `src/questionai/content/equation_detector.py`, `content/code_detector.py`, `content/table_detector.py`, `content/figure_detector.py`
+**Modules:** `src/pdfextract/content/equation_detector.py`, `content/code_detector.py`, `content/table_detector.py`, `content/figure_detector.py`
 
 Runs over the body paragraphs and produces `ContentBlock` objects for detected specialised content:
 
@@ -97,7 +97,7 @@ Runs over the body paragraphs and produces `ContentBlock` objects for detected s
 
 ## Stage 7 — Question Reconstruction
 
-**Modules:** `src/questionai/reconstruction/question_reconstructor.py`, `reconstruction/text_cleaner.py`
+**Modules:** `src/pdfextract/reconstruction/question_reconstructor.py`, `reconstruction/text_cleaner.py`
 
 Combines each `QuestionCandidate` with its associated `ContentBlock` objects into a `Question` Pydantic model. Generates a globally unique question ID in the format `<course>_<exam>_<year>_<semester>_Q<n>[_<sub>]`. Flattens content blocks to a plain text `question_text` string, serialising equations as `$...$`, code as fenced blocks, tables as Markdown tables, and figures as `[FIGURE: path (caption)]` references.
 
@@ -107,7 +107,7 @@ Text cleaning applies configurable normalisation: duplicate whitespace removal, 
 
 ## Stage 8 — Validation and Confidence
 
-**Modules:** `src/questionai/validation/validator.py`, `validation/confidence.py`
+**Modules:** `src/pdfextract/validation/validator.py`, `validation/confidence.py`
 
 ### Validation
 
@@ -121,7 +121,7 @@ Per-question confidence is computed as a weighted sum of six signals. The overal
 
 ## Stage 9 — Output Serialization
 
-**Modules:** `src/questionai/output/csv_writer.py`, `output/report_generator.py`, `output/jsonl_writer.py`
+**Modules:** `src/pdfextract/output/csv_writer.py`, `output/report_generator.py`, `output/jsonl_writer.py`
 
 Writes all output files for the paper:
 

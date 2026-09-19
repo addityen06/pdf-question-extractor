@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-QuestionAI — Export CSVs Only
+Export CSVs Only
 ===============================
 Extracts all `.csv` files from `textPapers/` into `textPapersCSV/`
 preserving the exact course-code directory structure with only CSV files.

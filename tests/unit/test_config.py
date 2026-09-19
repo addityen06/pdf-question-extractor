@@ -7,7 +7,7 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from questionai.core.config import load_config, PipelineConfig
+from pdfextract.core.config import load_config, PipelineConfig
 
 
 class TestLoadConfig:

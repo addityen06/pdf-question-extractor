@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-QuestionAI — Stage A CLI Runner
+Stage A CLI Runner
 =================================
 Automated PDF Question Extraction Pipeline.
 
@@ -24,10 +24,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from questionai.core.config import load_config, PipelineConfig
-from questionai.core.constants import VERSION
-from questionai.core.models import ProcessingStatus
-from questionai.pipeline import run_stage_a_pipeline
+from pdfextract.core.config import load_config, PipelineConfig
+from pdfextract.core.constants import VERSION
+from pdfextract.core.models import ProcessingStatus
+from pdfextract.pipeline import run_stage_a_pipeline
 
 
 def setup_logging(config: PipelineConfig, project_root: Path) -> None:
@@ -53,7 +53,7 @@ def setup_logging(config: PipelineConfig, project_root: Path) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="QuestionAI Stage A: Individual PDF Question Extraction",
+        description="PDF Question Extraction Pipeline",
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument(
@@ -105,10 +105,10 @@ def main() -> None:
         config.paths.papers_dir = args.papers_dir
 
     setup_logging(config, PROJECT_ROOT)
-    logger = logging.getLogger("questionai")
+    logger = logging.getLogger("pdfextract")
 
     logger.info("=" * 70)
-    logger.info(f"  QuestionAI Stage A Extraction Engine v{VERSION}")
+    logger.info(f"  PDF Extraction Engine v{VERSION}")
     logger.info(f"  Project Root: {PROJECT_ROOT}")
     logger.info(f"  Question Separator: {config.extraction.question_separator}")
     logger.info("  Mode: 1 PDF -> 1 CSV (Independent Per-Paper Extraction)")

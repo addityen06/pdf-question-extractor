@@ -10,9 +10,9 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from questionai.core.config import PipelineConfig
-from questionai.ingestion.directory_scanner import PaperJob, parse_paper_filename
-from questionai.pipeline import process_single_paper
+from pdfextract.core.config import PipelineConfig
+from pdfextract.ingestion.directory_scanner import PaperJob, parse_paper_filename
+from pdfextract.pipeline import process_single_paper
 
 
 @pytest.mark.integration
